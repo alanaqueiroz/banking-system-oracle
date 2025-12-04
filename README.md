@@ -1,6 +1,6 @@
-# 🏦 Projeto Sistema Bancário em PL/SQL (Oracle)
+# 🏦 Sistema Bancário implementado em ORACLE PL/SQL
 
-Este projeto demonstra a contrução de de sistema bancário simples em Oracle Database XE utilizando PL/SQL, triggers, packages e container Docker.
+Este projeto demonstra a contrução de um sistema bancário simples em Oracle Database XE utilizando PL/SQL, triggers, packages e container Docker.
 Inclui criação de usuário, tabelas, trigger de saldo negativo, package de operações bancárias e testes práticos.
 
 - Criação de usuário dedicado
@@ -12,32 +12,15 @@ Inclui criação de usuário, tabelas, trigger de saldo negativo, package de ope
 
 ## 🚀 Tecnologias Utilizadas
 
-### 🐧 Ambiente
-- **Windows 10/11**
-- **WSL2**
 - **Ubuntu (via WSL)**
-
-### 🐳 Containerização
-- **Docker Desktop**
-- **Docker Engine**
-- **Oracle Database Express Edition em Docker (Docker Image: gvenzl/oracle-xe)**
-
-### 🛢 Banco de Dados
-- **Oracle Database XE 21c**
-- **Oracle Listener**
-- **Oracle PDB (XEPDB1)**
-
-### 🧰 Ferramentas SQL
+- **Docker Engine (Imagem Oracle XE : gvenzl/oracle-xe)**
+- **Oracle Database XE 21c (PDB XEPDB1)**
+- **PL/SQL(Triggers, Packages, Foreign Keys, Constraints)**
 - **SQL*Plus**
-- **PL/SQL**
-- **Triggers**
-- **Packages**
-- **Foreign Keys**
-- **Constraints**
 
 ---
 
-### 📦 Estrutura do Projeto
+## 📦 Estrutura do Projeto
 ```bash
 /banking-system-plsql
 │
@@ -48,7 +31,6 @@ Inclui criação de usuário, tabelas, trigger de saldo negativo, package de ope
 │ ├── pkg_bancario_spec.sql
 │ ├── pkg_bancario_body.sql
 │ ├── test_data.sql
-│
 └── README.md
 ```
 
@@ -59,14 +41,13 @@ Inclui criação de usuário, tabelas, trigger de saldo negativo, package de ope
 - Depósitos
 - Saques
 - Registro automático de transações bancárias
-- Trigger que impede saldo negativo
+- Trigger que impede saldo negativo e saque acima do saldo disponível
 - Package PL/SQL com operações bancárias (regras de negócio)
+- Registro de todas as transações
 
+## 📝 Modelagem de Dados
 
-
-## 📝 Scripts Incluídos
-
-### Criação de tabelas
+### Tabelas
 - CLIENTE
 - CONTA
 - TRANSACAO
@@ -90,6 +71,8 @@ Procedures:
 ---
 
 ## ⚙️ Como Rodar o Projeto
+
+Para rodar o projeto é necessário ter ter Docker
 
 ### 1) Subir a imagem Oracle XE no Docker
 ```bash
@@ -131,12 +114,3 @@ ALTER SESSION SET CONTAINER = XEPDB1;
 ALTER SYSTEM KILL SESSION 'SID,SERIAL#' IMMEDIATE;
 DROP USER bancario_test CASCADE;
 ```
-
-## 📊 Resultado Esperado
-
-- Cliente criado
-- Conta aberta
-- Depósito
-- Saque
-- Trigger impede saque acima do saldo
-- Registro de todas as transações

@@ -1,4 +1,3 @@
--- Impedir saldo negativo
 CREATE OR REPLACE TRIGGER trg_prevent_saldo_negativo
 BEFORE UPDATE ON conta
 FOR EACH ROW

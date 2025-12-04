@@ -1,8 +1,5 @@
 CREATE OR REPLACE PACKAGE BODY pkg_bancario AS
 
-  ----------------------------------------------------------------
-  -- PROCEDURE: abrir_conta
-  ----------------------------------------------------------------
   PROCEDURE abrir_conta(p_id_cliente NUMBER, p_numero VARCHAR2) IS
     v_count NUMBER;
   BEGIN
@@ -20,10 +17,6 @@ CREATE OR REPLACE PACKAGE BODY pkg_bancario AS
     DBMS_OUTPUT.PUT_LINE('Conta ' || p_numero || ' aberta com sucesso.');
   END abrir_conta;
 
-
-  ----------------------------------------------------------------
-  -- PROCEDURE: deposito
-  ----------------------------------------------------------------
   PROCEDURE deposito(p_id_conta NUMBER, p_valor NUMBER) IS
     v_count NUMBER;
   BEGIN
@@ -49,10 +42,6 @@ CREATE OR REPLACE PACKAGE BODY pkg_bancario AS
     DBMS_OUTPUT.PUT_LINE('Depósito de R$ ' || p_valor || ' realizado com sucesso.');
   END deposito;
 
-
-  ----------------------------------------------------------------
-  -- PROCEDURE: saque
-  ----------------------------------------------------------------
   PROCEDURE saque(p_id_conta NUMBER, p_valor NUMBER) IS
     v_count NUMBER;
   BEGIN

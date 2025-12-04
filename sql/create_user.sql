@@ -1,6 +1,5 @@
 ALTER SESSION SET CONTAINER = XEPDB1;
 
--- Criar usuário para o sistema bancário
 CREATE USER bancario_test IDENTIFIED BY bancario
   DEFAULT TABLESPACE USERS
   TEMPORARY TABLESPACE TEMP
